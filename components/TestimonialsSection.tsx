@@ -10,10 +10,10 @@ if (typeof window !== "undefined") {
 
 const testimonials = [
   {
-    id: "mai-lan",
-    name: "Chị Mai Lan",
-    location: "Hà Nội",
-    avatar: "M",
+    id: "thuy-van",
+    name: "Em Thùy Vân",
+    location: "Thái Bình",
+    avatar: "T",
     avatarBg: "#1f5b32",
     rating: 5,
     text: "Giò thơm, dai giòn, không bở tí nào. Mua về là cả nhà tấm tắc khen liền. Chả quế thơm lắm, có mùi quế thật chứ không phải hương liệu. Sẽ ủng hộ lâu dài!",
@@ -22,7 +22,7 @@ const testimonials = [
   {
     id: "tuan-anh",
     name: "Anh Tuấn Anh",
-    location: "Hải Phòng",
+    location: "Hà Nội",
     avatar: "T",
     avatarBg: "#6b4423",
     rating: 5,

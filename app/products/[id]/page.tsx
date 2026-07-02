@@ -16,10 +16,28 @@ export default function ProductDetailPage({
   const id = resolvedParams.id;
   const product = products.find((p) => p.id === id);
 
+  const [isZoomed, setIsZoomed] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsZoomed(false);
+      }
+    };
+    if (isZoomed) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isZoomed]);
+
   if (!product) {
     return (
       <div className="bg-[#f5ead4] min-h-screen flex flex-col justify-between">
-        <Navbar />
+        <Navbar hideNavLinks={true} />
         <main className="max-w-7xl mx-auto px-6 py-32 text-center flex-1 flex flex-col justify-center items-center">
           <h1 className="text-3xl font-bold text-[#12351f] mb-4" style={{ fontFamily: "Playfair Display, serif" }}>
             Không tìm thấy sản phẩm
@@ -50,7 +68,7 @@ export default function ProductDetailPage({
 
   return (
     <div className="bg-[#f5ead4] min-h-screen flex flex-col justify-between">
-      <Navbar />
+      <Navbar hideNavLinks={true} />
 
       <main className="flex-grow pt-20 pb-12 md:py-24">
         <div className="max-w-4xl mx-auto px-6">
@@ -70,15 +88,27 @@ export default function ProductDetailPage({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
               
               {/* Left Column: Product Image */}
-              <div className="lg:col-span-5 relative aspect-square w-full max-w-[280px] lg:max-w-none mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-md border border-[#c6a15b]/15 bg-[#fcfcfc]">
+              <div 
+                onClick={() => setIsZoomed(true)}
+                className="lg:col-span-5 relative aspect-square w-full max-w-[280px] lg:max-w-none mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-md border border-[#c6a15b]/15 bg-[#fcfcfc] cursor-zoom-in group"
+              >
                 <Image
                   src={product.image}
                   alt={`${product.name} - Giò Chả Luyến Vũ`}
                   fill
                   priority
-                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 30vw"
                 />
+                
+                {/* Magnifier Glass overlay on hover */}
+                <div className="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span className="bg-black/50 text-white rounded-full p-3 backdrop-blur-sm border border-white/20 transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <svg className="w-5 h-5 text-[#c6a15b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
 
               {/* Right Column: Information */}
@@ -224,6 +254,40 @@ export default function ProductDetailPage({
       </main>
 
       <Footer />
+
+      {/* Lightbox / Zoomed Image Overlay */}
+      {isZoomed && (
+        <div 
+          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-md transition-all duration-300 animate-fade-in"
+          onClick={() => setIsZoomed(false)}
+        >
+          {/* Close button */}
+          <button 
+            onClick={() => setIsZoomed(false)}
+            className="absolute top-4 right-4 z-10 text-white/80 hover:text-white text-3xl font-bold bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition-all cursor-pointer shadow-lg border border-white/15"
+            aria-label="Đóng"
+          >
+            &times;
+          </button>
+          
+          {/* Zoomed Image Container */}
+          <div 
+            className="relative w-full h-full max-w-[90vw] max-h-[85vh] p-4 flex items-center justify-center animate-scale-in"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image content
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={product.image}
+                alt={`${product.name} - Phóng to`}
+                fill
+                className="object-contain select-none"
+                sizes="90vw"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

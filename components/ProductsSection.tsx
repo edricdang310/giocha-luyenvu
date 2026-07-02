@@ -174,26 +174,6 @@ export default function ProductsSection() {
           ))}
         </div>
 
-        {/* View All CTA */}
-        <div className="text-center mt-14">
-          <button
-            id="btn-xem-tat-ca"
-            onClick={(e) => {
-              e.preventDefault();
-              window.dispatchEvent(
-                new CustomEvent("open-order-modal", {
-                  detail: { productName: "Các sản phẩm Giò Chả Luyến Vũ" },
-                })
-              );
-            }}
-            className="inline-flex items-center gap-2 border-2 border-[#12351f] text-[#12351f] px-8 py-4 rounded-full font-medium text-sm tracking-wide hover:bg-[#12351f] hover:text-white transition-all duration-300 cursor-pointer"
-          >
-            Xem tất cả sản phẩm
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
       </div>
     </section>
   );
