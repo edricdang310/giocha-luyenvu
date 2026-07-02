@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import OrderModal from "@/components/OrderModal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://giochaluyenvu.shop"),
@@ -107,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className="grain-overlay">
+    <html lang="vi">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -124,7 +125,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <OrderModal />
+      </body>
     </html>
   );
 }

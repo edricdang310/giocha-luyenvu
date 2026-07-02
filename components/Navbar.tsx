@@ -46,11 +46,11 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[72px]">
+        <div className="flex items-center justify-between h-14 md:h-[72px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             {/* Logo image replacing the SVG */}
-            <div className="relative w-[52px] h-[52px] flex-shrink-0 select-none">
+            <div className="relative w-10 h-10 md:w-[52px] md:h-[52px] flex-shrink-0 select-none">
               <Image
                 src="/images/logo.png"
                 alt="Logo Giò Chả Luyến Vũ"

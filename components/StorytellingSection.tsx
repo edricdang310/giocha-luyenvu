@@ -262,7 +262,7 @@ export default function StorytellingSection() {
           <div className="story-timeline-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             
             {/* Milestone 1 */}
-            <div className="timeline-card relative pl-6 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
               <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
                 <HomeIcon />
               </div>
@@ -280,7 +280,7 @@ export default function StorytellingSection() {
             </div>
 
             {/* Milestone 2 */}
-            <div className="timeline-card relative pl-6 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
               <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
                 <StarShieldIcon />
               </div>
@@ -298,7 +298,7 @@ export default function StorytellingSection() {
             </div>
 
             {/* Milestone 3 */}
-            <div className="timeline-card relative pl-6 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
               <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
                 <LeafIcon />
               </div>
@@ -316,7 +316,7 @@ export default function StorytellingSection() {
             </div>
 
             {/* Milestone 4 */}
-            <div className="timeline-card relative pl-6 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
               <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
                 <PeopleIcon />
               </div>

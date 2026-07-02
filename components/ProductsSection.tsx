@@ -2,96 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { products } from "@/data/products";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
-
-const products = [
-  {
-    id: "gio-lua",
-    name: "Giò Lụa",
-    desc: "Giò lụa truyền thống thơm mịn, dai giòn tự nhiên, vị ngọt đậm đà từ thịt heo nóng trong ngày.",
-    price: "Liên hệ",
-    image: "/products/gio-lua.png",
-    badge: "Bán chạy",
-    tags: ["Tươi nóng", "Không hàn the"],
-  },
-  {
-    id: "gio-thuc",
-    name: "Giò Thúc",
-    desc: "Giò thúc giòn sần sật, béo ngậy vừa vặn, thơm nồng hạt tiêu đen và nước mắm cốt truyền thống.",
-    price: "Liên hệ",
-    image: "/products/gio-thuc.png",
-    badge: null,
-    tags: ["Giòn sần sật", "Gia truyền"],
-  },
-  {
-    id: "gio-long",
-    name: "Giò Lòng",
-    desc: "Đặc sản độc đáo kết hợp giữa lòng non dai giòn chọn lọc và thịt giò thơm ngon quết mịn tay.",
-    price: "Liên hệ",
-    image: "/products/gio-long.png",
-    badge: "Độc đáo",
-    tags: ["Món mới", "Đặc sản"],
-  },
-  {
-    id: "cha-mo",
-    name: "Chả Mỡ",
-    desc: "Chả mỡ nướng vàng ươm, vị bùi béo ngậy tự nhiên, ăn kèm xôi nóng hoặc cơm trắng đều tuyệt đỉnh.",
-    price: "Liên hệ",
-    image: "/products/cha-mo.png",
-    badge: "Yêu thích",
-    tags: ["Bùi ngậy", "Vỏ giòn"],
-  },
-  {
-    id: "moc-trang",
-    name: "Mọc Trắng",
-    desc: "Mọc sống quết nhuyễn mịn màng, viên canh dẻo dai, giữ nguyên vị ngọt thanh khiết của thịt heo sạch.",
-    price: "Liên hệ",
-    image: "/products/moc-trang.png",
-    badge: null,
-    tags: ["Thanh ngọt", "Tiện lợi"],
-  },
-  {
-    id: "moc-nam",
-    name: "Mọc Nấm",
-    desc: "Mọc heo kết hợp nấm hương khô thơm lừng, giòn sần sật, gia tăng hương vị tự nhiên cho bát canh lẩu.",
-    price: "Liên hệ",
-    image: "/products/moc-nam.png",
-    badge: null,
-    tags: ["Nấm hương", "Thơm bùi"],
-  },
-  {
-    id: "nem-chua-ran",
-    name: "Nem Chua Rán",
-    desc: "Nem rán giòn ruộm bên ngoài, dẻo dai ngọt thịt bên trong, là món ăn vặt hấp dẫn của mọi lứa tuổi.",
-    price: "Liên hệ",
-    image: "/products/nem-chua.png",
-    badge: "Ăn vặt",
-    tags: ["Giòn ngậy", "Được yêu thích"],
-  },
-  {
-    id: "ruoc-heo",
-    name: "Ruốc Heo",
-    desc: "Ruốc bông tơi xốp, thơm lừng vị mắm cốt, ngọt thịt thăn, cực kỳ tiện lợi cho bữa sáng gia đình.",
-    price: "Liên hệ",
-    image: "/products/ruoc-heo.png",
-    badge: null,
-    tags: ["Thịt thăn sạch", "Tiện lợi"],
-  },
-  {
-    id: "thit-heo-gac-bep",
-    name: "Thịt Heo Gác Bếp",
-    desc: "Thịt heo thăn xé sợi đượm mùi khói bếp Tây Bắc, kết hợp hạt dổi, mắc khén cay thơm nồng nàn.",
-    price: "Liên hệ",
-    image: "/products/thit-lon-say.png",
-    badge: "Đặc sản",
-    tags: ["Mắc khén", "Lai rai"],
-  },
-];
 
 export default function ProductsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -175,43 +93,45 @@ export default function ProductsSection() {
         </div>
 
         {/* Products Grid */}
-        <div className="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="products-grid grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {products.map((product) => (
             <div
               key={product.id}
               id={`product-${product.id}`}
-              className="product-card group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-[#c6a15b]/10 flex flex-col h-full"
+              className="product-card group relative bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-[#c6a15b]/10 flex flex-col h-full"
             >
               {/* Kraft paper top bar */}
               <div className="h-1 bg-gradient-to-r from-[#c6a15b] via-[#d4b06a] to-[#c6a15b]" />
 
               {/* Badge */}
               {product.badge && (
-                <div className="absolute top-4 right-4 z-10 bg-[#12351f] text-[#c6a15b] text-xs px-3 py-1 rounded-full font-medium tracking-wide">
+                <div className="absolute top-2 right-2 md:top-4 md:right-4 z-10 bg-[#12351f] text-[#c6a15b] text-[9px] md:text-xs px-2 py-0.5 md:px-3 md:py-1 rounded-full font-medium tracking-wide">
                   {product.badge}
                 </div>
               )}
 
               {/* Image */}
-              <div className="relative overflow-hidden h-52">
+              <Link
+                href={`/products/${product.id}`}
+                className="relative overflow-hidden h-32 sm:h-40 md:h-52 block cursor-pointer"
+              >
                 <Image
                   src={product.image}
                   alt={`${product.name} - Giò Chả Luyến Vũ`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
-              </div>
+              </Link>
 
               {/* Content */}
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-3 md:p-6 flex-1 flex flex-col">
                 {/* Tags */}
-                <div className="flex gap-2 mb-3">
-                  {product.tags.map((tag) => (
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
+                  {product.tags.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] text-[#6b4423] border border-[#c6a15b]/30 px-2 py-0.5 rounded-full tracking-wide"
+                      className="text-[8px] md:text-[10px] text-[#6b4423] border border-[#c6a15b]/30 px-1.5 py-0.5 md:px-2 md:py-0.5 rounded-full tracking-wide whitespace-nowrap"
                     >
                       {tag}
                     </span>
@@ -219,28 +139,35 @@ export default function ProductsSection() {
                 </div>
 
                 <h3
-                  className="text-[#12351f] text-xl font-bold mb-2"
+                  className="text-[#12351f] text-sm md:text-xl font-bold mb-1 md:mb-2"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
                   {product.name}
                 </h3>
 
-                <p className="text-[#2d261b]/60 text-sm leading-relaxed mb-5">
+                <p className="text-[#2d261b]/60 text-[10px] md:text-[13px] leading-relaxed mb-3 md:mb-5 line-clamp-3 md:line-clamp-none">
                   {product.desc}
                 </p>
 
                 {/* Divider */}
-                <div className="mt-auto border-t border-[#c6a15b]/20 pt-4 flex items-center justify-between">
-                  <span className="text-[#c6a15b] font-semibold text-sm">
+                <div className="mt-auto border-t border-[#c6a15b]/20 pt-2 md:pt-4 flex items-center justify-between gap-1">
+                  <span className="text-[#c6a15b] font-semibold text-xs md:text-sm">
                     {product.price}
                   </span>
-                  <a
-                    href="tel:0978780261"
+                  <button
                     id={`order-${product.id}`}
-                    className="bg-[#12351f] text-white text-xs px-4 py-2 rounded-full hover:bg-[#1f5b32] transition-colors duration-300 tracking-wide"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.dispatchEvent(
+                        new CustomEvent("open-order-modal", {
+                          detail: { productName: product.name },
+                        })
+                      );
+                    }}
+                    className="bg-[#12351f] text-white text-[10px] md:text-xs px-2.5 py-1.5 md:px-4 md:py-2 rounded-full hover:bg-[#1f5b32] transition-colors duration-300 tracking-wide cursor-pointer flex-shrink-0"
                   >
                     Đặt hàng
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -249,16 +176,23 @@ export default function ProductsSection() {
 
         {/* View All CTA */}
         <div className="text-center mt-14">
-          <a
+          <button
             id="btn-xem-tat-ca"
-            href="tel:0978780261"
-            className="inline-flex items-center gap-2 border-2 border-[#12351f] text-[#12351f] px-8 py-4 rounded-full font-medium text-sm tracking-wide hover:bg-[#12351f] hover:text-white transition-all duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(
+                new CustomEvent("open-order-modal", {
+                  detail: { productName: "Các sản phẩm Giò Chả Luyến Vũ" },
+                })
+              );
+            }}
+            className="inline-flex items-center gap-2 border-2 border-[#12351f] text-[#12351f] px-8 py-4 rounded-full font-medium text-sm tracking-wide hover:bg-[#12351f] hover:text-white transition-all duration-300 cursor-pointer"
           >
             Xem tất cả sản phẩm
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </section>

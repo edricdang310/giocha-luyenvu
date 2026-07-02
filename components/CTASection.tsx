@@ -92,16 +92,23 @@ export default function CTASection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a
+              <button
                 id="btn-dat-hang-cta"
-                href="tel:0978780261"
-                className="flex items-center justify-center gap-3 bg-[#c6a15b] text-[#12351f] px-8 py-4 rounded-full font-bold text-base hover:bg-[#d4b06a] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#c6a15b]/30"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(
+                    new CustomEvent("open-order-modal", {
+                      detail: { productName: "Giò Chả Luyến Vũ" },
+                    })
+                  );
+                }}
+                className="flex items-center justify-center gap-3 bg-[#c6a15b] text-[#12351f] px-8 py-4 rounded-full font-bold text-base hover:bg-[#d4b06a] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#c6a15b]/30 cursor-pointer"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
                 Đặt hàng ngay
-              </a>
+              </button>
               <a
                 id="btn-hotline-cta"
                 href="tel:0978780261"
