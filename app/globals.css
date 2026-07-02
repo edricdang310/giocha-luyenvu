@@ -21,6 +21,18 @@
     overflow-x: hidden;
   }
 
+  @media (max-width: 768px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
   body {
     font-family: "Be Vietnam Pro", "Segoe UI", sans-serif;
     background-color: #f5ead4;
