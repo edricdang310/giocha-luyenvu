@@ -39,7 +39,7 @@ export default function CTASection() {
     <section
       id="lien-he"
       ref={sectionRef}
-      className="relative min-h-[600px] overflow-hidden flex items-center scroll-mt-20"
+      className="relative min-h-[600px] overflow-hidden flex items-center scroll-mt-18"
     >
       {/* Background image */}
       <div className="absolute inset-0">

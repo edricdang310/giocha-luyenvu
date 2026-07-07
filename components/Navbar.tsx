@@ -21,13 +21,44 @@ export default function Navbar({
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#trang-chu");
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
+
+      // ScrollSpy logic using getBoundingClientRect
+      const navHeightOffset = 180; // trigger boundary offset
+
+      // Check if scrolled to the very bottom of the page
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        setActiveSection(navLinks[navLinks.length - 1].href);
+        return;
+      }
+
+      // Loop backwards to give precedence to nested/lower sections
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const link = navLinks[i];
+        const el = document.querySelector(link.href) as HTMLElement | null;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // Check if section top is above trigger and section bottom is below trigger
+          if (rect.top <= navHeightOffset && rect.bottom >= navHeightOffset) {
+            setActiveSection(link.href);
+            return;
+          }
+        }
+      }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Call once initially
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -96,27 +127,29 @@ export default function Navbar({
           {/* Desktop Nav — centered */}
           {!hideNavLinks && (
             <ul className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
-              {navLinks.map((link, i) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className={`text-sm transition-colors duration-300 relative group pb-1 ${i === 0
-                      ? "text-white font-medium"
-                      : "text-white/70 hover:text-white"
-                      }`}
-                  >
-                    {link.label}
-                    {/* Active underline for first item */}
-                    <span
-                      className={`absolute -bottom-0.5 left-0 h-px bg-white transition-all duration-300 ${i === 0
-                        ? "w-full"
-                        : "w-0 group-hover:w-full bg-[#c6a15b]"
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => scrollToSection(e, link.href)}
+                      className={`text-sm transition-colors duration-300 relative group pb-1 font-medium ${isActive
+                        ? "text-[#c6a15b]"
+                        : "text-white/70 hover:text-white"
                         }`}
-                    />
-                  </a>
-                </li>
-              ))}
+                    >
+                      {link.label}
+                      <span
+                        className={`absolute -bottom-0.5 left-0 h-[2px] bg-[#c6a15b] transition-all duration-300 ${isActive
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
+                          }`}
+                      />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           )}
 
@@ -172,17 +205,23 @@ export default function Navbar({
         >
           <div className="bg-black/90 backdrop-blur-md px-6 py-5 border-t border-white/10">
             <ul className="flex flex-col gap-4 mb-5">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-white/75 hover:text-[#c6a15b] text-sm tracking-wide transition-colors duration-300 block"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => scrollToSection(e, link.href)}
+                      className={`text-sm tracking-wide transition-colors duration-300 block font-medium ${isActive
+                        ? "text-[#c6a15b]"
+                        : "text-white/75 hover:text-[#c6a15b]"
+                        }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
             <a
               href="tel:0978780261"

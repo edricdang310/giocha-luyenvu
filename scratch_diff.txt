@@ -1,0 +1,289 @@
+﻿diff --git a/components/StorytellingSection.tsx b/components/StorytellingSection.tsx
+index ef299be..c23f03d 100644
+--- a/components/StorytellingSection.tsx
++++ b/components/StorytellingSection.tsx
+@@ -56,6 +56,12 @@ const LeafIcon = () => (
+   </svg>
+ );
+ 
++const WrenchIcon = () => (
++  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className="w-5.5 h-5.5 text-[#c6a15b]">
++    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.756l-8.235 8.235a1.125 1.125 0 01-1.59 0l-1.854-1.854a1.125 1.125 0 010-1.59L10.5 8.535c.685-.685.847-1.874.756-2.95a4.5 4.5 0 018.98 0c0 .324-.031.64-.091.948m-2.906.948h.008v.008h-.008v-.008zm-2.25 2.25h.008v.008h-.008v-.008zm-2.25 2.25h.008v.008h-.008v-.008zm0-2.25h.008v.008h-.008v-.008zm2.25-2.25h.008v.008h-.008v-.008z" />
++  </svg>
++);
++
+ const PeopleIcon = () => (
+   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className="w-5.5 h-5.5 text-[#c6a15b]">
+     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A11.386 11.386 0 0110.089 21c-2.213 0-4.302-.576-6.124-1.587A5.99 5.99 0 014 18.725V18.7c0-1.603.626-3.059 1.644-4.116M14.214 16.058A5.996 5.996 0 0010 14.25a5.996 5.996 0 00-4.214 1.808M12 6.25a3 3 0 11-6 0 3 3 0 016 0zm7.5 1.5a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+@@ -191,7 +197,6 @@ export default function StorytellingSection() {
+ 
+   return (
+     <section
+-      id="cau-chuyen"
+       ref={sectionRef}
+       className="relative py-20 lg:py-28 overflow-hidden z-10 bg-[#f5ead4] scroll-mt-20"
+     >
+@@ -199,140 +204,143 @@ export default function StorytellingSection() {
+ 
+       <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 z-10 space-y-20 lg:space-y-28">
+         
+-        {/* ΓöÇΓöÇ BLOCK 1: INTRO ABOUT US ΓöÇΓöÇ */}
+-        <div className="story-intro-block flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+-          {/* Left Text */}
+-          <div className="story-intro-text w-full lg:w-[50%] space-y-6 text-left">
+-            <span className="text-[#c6a15b] text-xs font-semibold tracking-[0.25em] uppercase block">
+-              C├óu Chuyß╗çn
+-            </span>
+-            <h2
+-              className="text-[#12351f] text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight"
+-              style={{ fontFamily: "Playfair Display, serif" }}
+-            >
+-              H╞ín 20 n─âm g├¼n giß╗»<br />nghß╗ü truyß╗ün thß╗æng
+-            </h2>
+-            <div className="space-y-4 text-[#2d261b]/90 text-sm md:text-base leading-relaxed">
+-              <p>
+-                Tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å tß║íi v├╣ng ─æß║Ñt Ninh B├¼nh, Gi├▓ Chß║ú Luyß║┐n V┼⌐ bß║»t ─æß║ºu h├ánh tr├¼nh h╞ín 20 n─âm g├¼n giß╗» v├á ph├ít triß╗ân nghß╗ü l├ám gi├▓ chß║ú truyß╗ün thß╗æng cß╗ºa cha ├┤ng.
+-              </p>
+-              <p>
+-                Trß║úi qua bao th─âng trß║ºm, ch├║ng t├┤i vß║½n lu├┤n ki├¬n ─æß╗ïnh vß╗¢i ph╞░╞íng ch├óm: lß╗▒a chß╗ìn nguy├¬n liß╗çu t╞░╞íi ngon nhß║Ñt, chß║┐ biß║┐n tß╗ë mß╗ë v├á giß╗» trß╗ìn h╞░╞íng vß╗ï truyß╗ün thß╗æng trong tß╗½ng sß║ún phß║⌐m.
+-              </p>
+-              <p className="font-bold text-[#12351f] pt-2">
+-                Gi├▓ Chß║ú Luyß║┐n V┼⌐ ΓÇô Tinh hoa tß╗½ t├óm, ngon l├ánh gß╗¡i trß╗ìn niß╗üm tin.
+-              </p>
++        {/* ΓöÇΓöÇ Wrapper for C├óu chuyß╗çn (Intro + Timeline) ΓöÇΓöÇ */}
++        <div id="cau-chuyen" className="scroll-mt-28 space-y-20 lg:space-y-28">
++          {/* ΓöÇΓöÇ BLOCK 1: INTRO ABOUT US ΓöÇΓöÇ */}
++          <div className="story-intro-block flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
++            {/* Left Text */}
++            <div className="story-intro-text w-full lg:w-[50%] space-y-6 text-left">
++              <span className="text-[#c6a15b] text-xs font-semibold tracking-[0.25em] uppercase block">
++                C├óu Chuyß╗çn
++              </span>
++              <h2
++                className="text-[#12351f] text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight"
++                style={{ fontFamily: "Playfair Display, serif" }}
++              >
++                H╞ín 20 n─âm g├¼n giß╗»<br />nghß╗ü truyß╗ün thß╗æng
++              </h2>
++              <div className="space-y-4 text-[#2d261b]/90 text-sm md:text-base leading-relaxed">
++                <p>
++                  Tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å tß║íi v├╣ng ─æß║Ñt Ninh B├¼nh, Gi├▓ Chß║ú Luyß║┐n V┼⌐ bß║»t ─æß║ºu h├ánh tr├¼nh h╞ín 20 n─âm g├¼n giß╗» v├á ph├ít triß╗ân nghß╗ü l├ám gi├▓ chß║ú truyß╗ün thß╗æng cß╗ºa cha ├┤ng.
++                </p>
++                <p>
++                  Trß║úi qua bao th─âng trß║ºm, ch├║ng t├┤i vß║½n lu├┤n ki├¬n ─æß╗ïnh vß╗¢i ph╞░╞íng ch├óm: lß╗▒a chß╗ìn nguy├¬n liß╗çu t╞░╞íi ngon nhß║Ñt, chß║┐ biß║┐n tß╗ë mß╗ë v├á giß╗» trß╗ìn h╞░╞íng vß╗ï truyß╗ün thß╗æng trong tß╗½ng sß║ún phß║⌐m.
++                </p>
++                <p className="font-bold text-[#12351f] pt-2">
++                  Gi├▓ Chß║ú Luyß║┐n V┼⌐ ΓÇô Tinh hoa tß╗½ t├óm, ngon l├ánh gß╗¡i trß╗ìn niß╗üm tin.
++                </p>
++              </div>
++              <button
++                onClick={() => scrollToSection("#quy-trinh")}
++                className="group bg-[#12351f] border border-[#12351f] text-[#f5ead4] hover:bg-[#c6a15b] hover:border-[#c6a15b] hover:text-[#12351f] px-7 py-3.5 text-xs font-semibold tracking-wider transition-all duration-300 rounded-xs uppercase cursor-pointer flex items-center gap-2"
++                style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
++              >
++                T├¼m Hiß╗âu Th├¬m
++                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
++              </button>
+             </div>
+-            <button
+-              onClick={() => scrollToSection("#quy-trinh")}
+-              className="group bg-[#12351f] border border-[#12351f] text-[#f5ead4] hover:bg-[#c6a15b] hover:border-[#c6a15b] hover:text-[#12351f] px-7 py-3.5 text-xs font-semibold tracking-wider transition-all duration-300 rounded-xs uppercase cursor-pointer flex items-center gap-2"
+-              style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
+-            >
+-              T├¼m Hiß╗âu Th├¬m
+-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
+-            </button>
+-          </div>
+ 
+-          {/* Right Image */}
+-          <div className="story-intro-img w-full lg:w-[50%]">
+-            <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg border border-[#c6a15b]/20">
+-              <Image
+-                src="/images/hero.png"
+-                alt="Nghß╗ç nh├ón g├│i gi├▓ - Gi├▓ Chß║ú Luyß║┐n V┼⌐"
+-                fill
+-                priority
+-                className="object-cover object-center"
+-                sizes="(max-width: 768px) 100vw, 50vw"
+-              />
++            {/* Right Image */}
++            <div className="story-intro-img w-full lg:w-[50%]">
++              <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg border border-[#c6a15b]/20">
++                <Image
++                  src="/images/hero.png"
++                  alt="Nghß╗ç nh├ón g├│i gi├▓ - Gi├▓ Chß║ú Luyß║┐n V┼⌐"
++                  fill
++                  priority
++                  className="object-cover object-center"
++                  sizes="(max-width: 768px) 100vw, 50vw"
++                />
++              </div>
+             </div>
+           </div>
+-        </div>
+-
+-        {/* ΓöÇΓöÇ BLOCK 2: DEVELOPMENT TIMELINE ΓöÇΓöÇ */}
+-        <div className="story-timeline-block space-y-10">
+-          {/* Header Line */}
+-          <div className="story-timeline-header flex items-center gap-4">
+-            <h3 className="text-[#c6a15b] text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap">
+-              H├ÇNH TR├îNH PH├üT TRIß╗éN
+-            </h3>
+-            <div className="story-timeline-header-line h-[1px] bg-[#c6a15b]/30 flex-1" />
+-          </div>
+ 
+-          {/* 4 Milestones Columns */}
+-          <div className="story-timeline-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+-            
+-            {/* Milestone 1 */}
+-            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
+-              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+-                <HomeIcon />
+-              </div>
+-              <div>
+-                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+-                  2000+
+-                </h4>
+-                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+-                  Khß╗ƒi nguß╗ôn
+-                </h5>
+-              </div>
+-              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+-                Bß║»t ─æß║ºu tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å vß╗¢i t├¼nh y├¬u nghß╗ü v├á mong muß╗æn mang ─æß║┐n nhß╗»ng ─æ├▓n gi├▓ chß║ú th╞ím ngon, an to├án cho gia ─æ├¼nh v├á ng╞░ß╗¥i th├ón.
+-              </p>
++          {/* ΓöÇΓöÇ BLOCK 2: DEVELOPMENT TIMELINE ΓöÇΓöÇ */}
++          <div className="story-timeline-block space-y-10">
++            {/* Header Line */}
++            <div className="story-timeline-header flex items-center gap-4">
++              <h3 className="text-[#c6a15b] text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap">
++                H├ÇNH TR├îNH PH├üT TRIß╗éN
++              </h3>
++              <div className="story-timeline-header-line h-[1px] bg-[#c6a15b]/30 flex-1" />
+             </div>
+ 
+-            {/* Milestone 2 */}
+-            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+-              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+-                <StarShieldIcon />
+-              </div>
+-              <div>
+-                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+-                  2005+
+-                </h4>
+-                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+-                  G├óy dß╗▒ng uy t├¡n
+-                </h5>
++            {/* 4 Milestones Columns */}
++            <div className="story-timeline-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
++              
++              {/* Milestone 1 */}
++              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
++                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
++                  <HomeIcon />
++                </div>
++                <div>
++                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
++                    2000+
++                  </h4>
++                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
++                    Khß╗ƒi nguß╗ôn
++                  </h5>
++                </div>
++                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
++                  Bß║»t ─æß║ºu tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å vß╗¢i t├¼nh y├¬u nghß╗ü v├á mong muß╗æn mang ─æß║┐n nhß╗»ng ─æ├▓n gi├▓ chß║ú th╞ím ngon, an to├án cho gia ─æ├¼nh v├á ng╞░ß╗¥i th├ón.
++                </p>
+               </div>
+-              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+-                Nhß╗¥ chß║Ñt l╞░ß╗úng ß╗òn ─æß╗ïnh v├á h╞░╞íng vß╗ï ─æß║╖c tr╞░ng, sß║ún phß║⌐m dß║ºn ─æ╞░ß╗úc kh├ích h├áng tin t╞░ß╗ƒng v├á y├¬u mß║┐n, mß╗ƒ rß╗Öng thß╗ï tr╞░ß╗¥ng tß║íi ─æß╗ïa ph╞░╞íng.
+-              </p>
+-            </div>
+ 
+-            {/* Milestone 3 */}
+-            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+-              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+-                <LeafIcon />
+-              </div>
+-              <div>
+-                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+-                  2015+
+-                </h4>
+-                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+-                  ─Éß╗òi mß╗¢i ΓÇô Ph├ít triß╗ân
+-                </h5>
++              {/* Milestone 2 */}
++              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
++                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
++                  <StarShieldIcon />
++                </div>
++                <div>
++                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
++                    2005+
++                  </h4>
++                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
++                    G├óy dß╗▒ng uy t├¡n
++                  </h5>
++                </div>
++                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
++                  Nhß╗¥ chß║Ñt l╞░ß╗úng ß╗òn ─æß╗ïnh v├á h╞░╞íng vß╗ï ─æß║╖c tr╞░ng, sß║ún phß║⌐m dß║ºn ─æ╞░ß╗úc kh├ích h├áng tin t╞░ß╗ƒng v├á y├¬u mß║┐n, mß╗ƒ rß╗Öng thß╗ï tr╞░ß╗¥ng tß║íi ─æß╗ïa ph╞░╞íng.
++                </p>
+               </div>
+-              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+-                Kh├┤ng ngß╗½ng cß║úi tiß║┐n quy tr├¼nh sß║ún xuß║Ñt, ─æß║ºu t╞░ thiß║┐t bß╗ï hiß╗çn ─æß║íi nh╞░ng vß║½n giß╗» nguy├¬n b├¡ quyß║┐t truyß╗ün thß╗æng ─æß╗â n├óng cao chß║Ñt l╞░ß╗úng sß║ún phß║⌐m.
+-              </p>
+-            </div>
+ 
+-            {/* Milestone 4 */}
+-            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+-              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+-                <PeopleIcon />
++              {/* Milestone 3 */}
++              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
++                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
++                  <WrenchIcon />
++                </div>
++                <div>
++                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
++                    2015+
++                  </h4>
++                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
++                    ─Éß╗òi mß╗¢i ΓÇô Ph├ít triß╗ân
++                  </h5>
++                </div>
++                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
++                  Kh├┤ng ngß╗½ng cß║úi tiß║┐n quy tr├¼nh sß║ún xuß║Ñt, ─æß║ºu t╞░ thiß║┐t bß╗ï hiß╗çn ─æß║íi nh╞░ng vß║½n giß╗» nguy├¬n b├¡ quyß║┐t truyß╗ün thß╗æng ─æß╗â n├óng cao chß║Ñt l╞░ß╗úng sß║ún phß║⌐m.
++                </p>
+               </div>
+-              <div>
+-                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+-                  Hiß╗çn tß║íi
+-                </h4>
+-                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+-                  V╞░╞ín xa ΓÇô Bß╗ün vß╗»ng
+-                </h5>
++
++              {/* Milestone 4 */}
++              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
++                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
++                  <PeopleIcon />
++                </div>
++                <div>
++                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
++                    Hiß╗çn tß║íi
++                  </h4>
++                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
++                    V╞░╞ín xa ΓÇô Bß╗ün vß╗»ng
++                  </h5>
++                </div>
++                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
++                  Gi├▓ Chß║ú Luyß║┐n V┼⌐ ─æ├ú trß╗ƒ th├ánh th╞░╞íng hiß╗çu ─æ╞░ß╗úc nhiß╗üu kh├ích h├áng tin chß╗ìn, h╞░ß╗¢ng tß╗¢i ph├ít triß╗ân bß╗ün vß╗»ng v├á mang ─æß║╖c sß║ún Ninh B├¼nh ─æß║┐n mß╗ìi miß╗ün.
++                </p>
+               </div>
+-              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+-                Gi├▓ Chß║ú Luyß║┐n V┼⌐ ─æ├ú trß╗ƒ th├ánh th╞░╞íng hiß╗çu ─æ╞░ß╗úc nhiß╗üu kh├ích h├áng tin chß╗ìn, h╞░ß╗¢ng tß╗¢i ph├ít triß╗ân bß╗ün vß╗»ng v├á mang ─æß║╖c sß║ún Ninh B├¼nh ─æß║┐n mß╗ìi miß╗ün.
+-              </p>
+-            </div>
+ 
++            </div>
+           </div>
+         </div>
+ 

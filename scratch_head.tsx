@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -53,12 +53,6 @@ const StarShieldIcon = () => (
 const LeafIcon = () => (
   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className="w-5.5 h-5.5 text-[#c6a15b]">
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9" />
-  </svg>
-);
-
-const WrenchIcon = () => (
-  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className="w-5.5 h-5.5 text-[#c6a15b]">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.756l-8.235 8.235a1.125 1.125 0 01-1.59 0l-1.854-1.854a1.125 1.125 0 010-1.59L10.5 8.535c.685-.685.847-1.874.756-2.95a4.5 4.5 0 018.98 0c0 .324-.031.64-.091.948m-2.906.948h.008v.008h-.008v-.008zm-2.25 2.25h.008v.008h-.008v-.008zm-2.25 2.25h.008v.008h-.008v-.008zm0-2.25h.008v.008h-.008v-.008zm2.25-2.25h.008v.008h-.008v-.008z" />
   </svg>
 );
 
@@ -197,6 +191,7 @@ export default function StorytellingSection() {
 
   return (
     <section
+      id="cau-chuyen"
       ref={sectionRef}
       className="relative py-20 lg:py-28 overflow-hidden z-10 bg-[#f5ead4] scroll-mt-20"
     >
@@ -204,154 +199,151 @@ export default function StorytellingSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 z-10 space-y-20 lg:space-y-28">
         
-        {/* ── Wrapper for Câu chuyện (Intro + Timeline) ── */}
-        <div id="cau-chuyen" className="scroll-mt-28 space-y-20 lg:space-y-28">
-          {/* ── BLOCK 1: INTRO ABOUT US ── */}
-          <div className="story-intro-block flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            {/* Left Text */}
-            <div className="story-intro-text w-full lg:w-[50%] space-y-6 text-left">
-              <span className="text-[#c6a15b] text-xs font-semibold tracking-[0.25em] uppercase block">
-                Câu Chuyện
-              </span>
-              <h2
-                className="text-[#12351f] text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                Hơn 20 năm gìn giữ<br />nghề truyền thống
-              </h2>
-              <div className="space-y-4 text-[#2d261b]/90 text-sm md:text-base leading-relaxed">
-                <p>
-                  Từ một cơ sở nhỏ tại vùng đất Ninh Bình, Giò Chả Luyến Vũ bắt đầu hành trình hơn 20 năm gìn giữ và phát triển nghề làm giò chả truyền thống của cha ông.
-                </p>
-                <p>
-                  Trải qua bao thăng trầm, chúng tôi vẫn luôn kiên định với phương châm: lựa chọn nguyên liệu tươi ngon nhất, chế biến tỉ mỉ và giữ trọn hương vị truyền thống trong từng sản phẩm.
-                </p>
-                <p className="font-bold text-[#12351f] pt-2">
-                  Giò Chả Luyến Vũ – Tinh hoa từ tâm, ngon lành gửi trọn niềm tin.
-                </p>
-              </div>
-              <button
-                onClick={() => scrollToSection("#quy-trinh")}
-                className="group bg-[#12351f] border border-[#12351f] text-[#f5ead4] hover:bg-[#c6a15b] hover:border-[#c6a15b] hover:text-[#12351f] px-7 py-3.5 text-xs font-semibold tracking-wider transition-all duration-300 rounded-xs uppercase cursor-pointer flex items-center gap-2"
-                style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
-              >
-                Tìm Hiểu Thêm
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
-              </button>
+        {/* ΓöÇΓöÇ BLOCK 1: INTRO ABOUT US ΓöÇΓöÇ */}
+        <div className="story-intro-block flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          {/* Left Text */}
+          <div className="story-intro-text w-full lg:w-[50%] space-y-6 text-left">
+            <span className="text-[#c6a15b] text-xs font-semibold tracking-[0.25em] uppercase block">
+              C├óu Chuyß╗çn
+            </span>
+            <h2
+              className="text-[#12351f] text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
+              H╞ín 20 n─âm g├¼n giß╗»<br />nghß╗ü truyß╗ün thß╗æng
+            </h2>
+            <div className="space-y-4 text-[#2d261b]/90 text-sm md:text-base leading-relaxed">
+              <p>
+                Tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å tß║íi v├╣ng ─æß║Ñt Ninh B├¼nh, Gi├▓ Chß║ú Luyß║┐n V┼⌐ bß║»t ─æß║ºu h├ánh tr├¼nh h╞ín 20 n─âm g├¼n giß╗» v├á ph├ít triß╗ân nghß╗ü l├ám gi├▓ chß║ú truyß╗ün thß╗æng cß╗ºa cha ├┤ng.
+              </p>
+              <p>
+                Trß║úi qua bao th─âng trß║ºm, ch├║ng t├┤i vß║½n lu├┤n ki├¬n ─æß╗ïnh vß╗¢i ph╞░╞íng ch├óm: lß╗▒a chß╗ìn nguy├¬n liß╗çu t╞░╞íi ngon nhß║Ñt, chß║┐ biß║┐n tß╗ë mß╗ë v├á giß╗» trß╗ìn h╞░╞íng vß╗ï truyß╗ün thß╗æng trong tß╗½ng sß║ún phß║⌐m.
+              </p>
+              <p className="font-bold text-[#12351f] pt-2">
+                Gi├▓ Chß║ú Luyß║┐n V┼⌐ ΓÇô Tinh hoa tß╗½ t├óm, ngon l├ánh gß╗¡i trß╗ìn niß╗üm tin.
+              </p>
             </div>
-
-            {/* Right Image */}
-            <div className="story-intro-img w-full lg:w-[50%]">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg border border-[#c6a15b]/20">
-                <Image
-                  src="/images/hero.png"
-                  alt="Nghệ nhân gói giò - Giò Chả Luyến Vũ"
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+            <button
+              onClick={() => scrollToSection("#quy-trinh")}
+              className="group bg-[#12351f] border border-[#12351f] text-[#f5ead4] hover:bg-[#c6a15b] hover:border-[#c6a15b] hover:text-[#12351f] px-7 py-3.5 text-xs font-semibold tracking-wider transition-all duration-300 rounded-xs uppercase cursor-pointer flex items-center gap-2"
+              style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
+            >
+              T├¼m Hiß╗âu Th├¬m
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&gt;</span>
+            </button>
           </div>
 
-          {/* ── BLOCK 2: DEVELOPMENT TIMELINE ── */}
-          <div className="story-timeline-block space-y-10">
-            {/* Header Line */}
-            <div className="story-timeline-header flex items-center gap-4">
-              <h3 className="text-[#c6a15b] text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap">
-                HÀNH TRÌNH PHÁT TRIỂN
-              </h3>
-              <div className="story-timeline-header-line h-[1px] bg-[#c6a15b]/30 flex-1" />
-            </div>
-
-            {/* 4 Milestones Columns */}
-            <div className="story-timeline-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-              
-              {/* Milestone 1 */}
-              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
-                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
-                  <HomeIcon />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
-                    2000+
-                  </h4>
-                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
-                    Khởi nguồn
-                  </h5>
-                </div>
-                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
-                  Bắt đầu từ một cơ sở nhỏ với tình yêu nghề và mong muốn mang đến những đòn giò chả thơm ngon, an toàn cho gia đình và người thân.
-                </p>
-              </div>
-
-              {/* Milestone 2 */}
-              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
-                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
-                  <StarShieldIcon />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
-                    2005+
-                  </h4>
-                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
-                    Gây dựng uy tín
-                  </h5>
-                </div>
-                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
-                  Nhờ chất lượng ổn định và hương vị đặc trưng, sản phẩm dần được khách hàng tin tưởng và yêu mến, mở rộng thị trường tại địa phương.
-                </p>
-              </div>
-
-              {/* Milestone 3 */}
-              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
-                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
-                  <WrenchIcon />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
-                    2015+
-                  </h4>
-                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
-                    Đổi mới – Phát triển
-                  </h5>
-                </div>
-                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
-                  Không ngừng cải tiến quy trình sản xuất, đầu tư thiết bị hiện đại nhưng vẫn giữ nguyên bí quyết truyền thống để nâng cao chất lượng sản phẩm.
-                </p>
-              </div>
-
-              {/* Milestone 4 */}
-              <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
-                <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
-                  <PeopleIcon />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
-                    Hiện tại
-                  </h4>
-                  <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
-                    Vươn xa – Bền vững
-                  </h5>
-                </div>
-                <p className="text-[#2d261b]/80 text-sm leading-relaxed">
-                  Giò Chả Luyến Vũ đã trở thành thương hiệu được nhiều khách hàng tin chọn, hướng tới phát triển bền vững và mang đặc sản Ninh Bình đến mọi miền.
-                </p>
-              </div>
-
+          {/* Right Image */}
+          <div className="story-intro-img w-full lg:w-[50%]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg border border-[#c6a15b]/20">
+              <Image
+                src="/images/hero.png"
+                alt="Nghß╗ç nh├ón g├│i gi├▓ - Gi├▓ Chß║ú Luyß║┐n V┼⌐"
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
 
-        {/* ── BLOCK 3: SECRET RECIPE ── */}
+        {/* ΓöÇΓöÇ BLOCK 2: DEVELOPMENT TIMELINE ΓöÇΓöÇ */}
+        <div className="story-timeline-block space-y-10">
+          {/* Header Line */}
+          <div className="story-timeline-header flex items-center gap-4">
+            <h3 className="text-[#c6a15b] text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap">
+              H├ÇNH TR├îNH PH├üT TRIß╗éN
+            </h3>
+            <div className="story-timeline-header-line h-[1px] bg-[#c6a15b]/30 flex-1" />
+          </div>
+
+          {/* 4 Milestones Columns */}
+          <div className="story-timeline-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            
+            {/* Milestone 1 */}
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 first:border-0 space-y-4 text-left">
+              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+                <HomeIcon />
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+                  2000+
+                </h4>
+                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+                  Khß╗ƒi nguß╗ôn
+                </h5>
+              </div>
+              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+                Bß║»t ─æß║ºu tß╗½ mß╗Öt c╞í sß╗ƒ nhß╗Å vß╗¢i t├¼nh y├¬u nghß╗ü v├á mong muß╗æn mang ─æß║┐n nhß╗»ng ─æ├▓n gi├▓ chß║ú th╞ím ngon, an to├án cho gia ─æ├¼nh v├á ng╞░ß╗¥i th├ón.
+              </p>
+            </div>
+
+            {/* Milestone 2 */}
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+                <StarShieldIcon />
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+                  2005+
+                </h4>
+                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+                  G├óy dß╗▒ng uy t├¡n
+                </h5>
+              </div>
+              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+                Nhß╗¥ chß║Ñt l╞░ß╗úng ß╗òn ─æß╗ïnh v├á h╞░╞íng vß╗ï ─æß║╖c tr╞░ng, sß║ún phß║⌐m dß║ºn ─æ╞░ß╗úc kh├ích h├áng tin t╞░ß╗ƒng v├á y├¬u mß║┐n, mß╗ƒ rß╗Öng thß╗ï tr╞░ß╗¥ng tß║íi ─æß╗ïa ph╞░╞íng.
+              </p>
+            </div>
+
+            {/* Milestone 3 */}
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+                <LeafIcon />
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+                  2015+
+                </h4>
+                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+                  ─Éß╗òi mß╗¢i ΓÇô Ph├ít triß╗ân
+                </h5>
+              </div>
+              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+                Kh├┤ng ngß╗½ng cß║úi tiß║┐n quy tr├¼nh sß║ún xuß║Ñt, ─æß║ºu t╞░ thiß║┐t bß╗ï hiß╗çn ─æß║íi nh╞░ng vß║½n giß╗» nguy├¬n b├¡ quyß║┐t truyß╗ün thß╗æng ─æß╗â n├óng cao chß║Ñt l╞░ß╗úng sß║ún phß║⌐m.
+              </p>
+            </div>
+
+            {/* Milestone 4 */}
+            <div className="timeline-card relative pl-0 lg:pl-8 lg:border-l lg:border-[#c6a15b]/25 space-y-4 text-left">
+              <div className="w-11 h-11 rounded-full border border-[#c6a15b]/50 flex items-center justify-center bg-[#f5ead4]/50">
+                <PeopleIcon />
+              </div>
+              <div>
+                <h4 className="text-2xl font-bold text-[#12351f] mb-1" style={{ fontFamily: "Playfair Display, serif" }}>
+                  Hiß╗çn tß║íi
+                </h4>
+                <h5 className="text-sm font-bold text-[#2d261b] tracking-wide uppercase">
+                  V╞░╞ín xa ΓÇô Bß╗ün vß╗»ng
+                </h5>
+              </div>
+              <p className="text-[#2d261b]/80 text-sm leading-relaxed">
+                Gi├▓ Chß║ú Luyß║┐n V┼⌐ ─æ├ú trß╗ƒ th├ánh th╞░╞íng hiß╗çu ─æ╞░ß╗úc nhiß╗üu kh├ích h├áng tin chß╗ìn, h╞░ß╗¢ng tß╗¢i ph├ít triß╗ân bß╗ün vß╗»ng v├á mang ─æß║╖c sß║ún Ninh B├¼nh ─æß║┐n mß╗ìi miß╗ün.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ΓöÇΓöÇ BLOCK 3: SECRET RECIPE ΓöÇΓöÇ */}
         <div id="quy-trinh" className="story-recipe-block flex flex-col lg:flex-row items-center gap-10 lg:gap-16 pt-4 scroll-mt-24">
           {/* Left Image */}
           <div className="story-recipe-img w-full lg:w-[50%]">
             <div className="relative aspect-[16/10] overflow-hidden rounded-xl shadow-lg border border-[#c6a15b]/20">
               <Image
                 src="/images/products.png"
-                alt="Mâm giò chả thơm ngon - Giò Chả Luyến Vũ"
+                alt="M├óm gi├▓ chß║ú th╞ím ngon - Gi├▓ Chß║ú Luyß║┐n V┼⌐"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -362,40 +354,40 @@ export default function StorytellingSection() {
           {/* Right Text */}
           <div className="story-recipe-text w-full lg:w-[50%] space-y-6 text-left">
             <span className="text-[#c6a15b] text-xs font-semibold tracking-[0.25em] uppercase block">
-              BÍ QUYẾT LÀM NÊN HƯƠNG VỊ ĐẶC TRƯNG
+              B├ì QUYß║╛T L├ÇM N├èN H╞»╞áNG Vß╗è ─Éß║╢C TR╞»NG
             </span>
             <h2
               className="text-[#12351f] text-3xl md:text-4xl font-bold leading-tight"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
-              Tỉ mỉ trong từng công đoạn
+              Tß╗ë mß╗ë trong tß╗½ng c├┤ng ─æoß║ín
             </h2>
             <p
               className="text-[#2d261b]/90 text-sm md:text-base leading-relaxed"
               style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
             >
-              Chúng tôi tin rằng, một sản phẩm ngon phải bắt đầu từ những nguyên liệu tốt nhất và sự tỉ mỉ trong từng công đoạn.
+              Ch├║ng t├┤i tin rß║▒ng, mß╗Öt sß║ún phß║⌐m ngon phß║úi bß║»t ─æß║ºu tß╗½ nhß╗»ng nguy├¬n liß╗çu tß╗æt nhß║Ñt v├á sß╗▒ tß╗ë mß╗ë trong tß╗½ng c├┤ng ─æoß║ín.
             </p>
             
             {/* Checklist */}
             <div className="space-y-4 pt-2">
               <div className="flex items-center gap-3 text-[#2d261b]/95 text-sm md:text-base">
                 <CheckIcon />
-                <span>Lựa chọn nguyên liệu tươi ngon, rõ nguồn gốc</span>
+                <span>Lß╗▒a chß╗ìn nguy├¬n liß╗çu t╞░╞íi ngon, r├╡ nguß╗ôn gß╗æc</span>
               </div>
               <div className="flex items-center gap-3 text-[#2d261b]/95 text-sm md:text-base">
                 <CheckIcon />
-                <span>Chế biến theo công thức gia truyền, nêm nếm vừa vặn</span>
+                <span>Chß║┐ biß║┐n theo c├┤ng thß╗⌐c gia truyß╗ün, n├¬m nß║┐m vß╗½a vß║╖n</span>
               </div>
               <div className="flex items-center gap-3 text-[#2d261b]/95 text-sm md:text-base">
                 <CheckIcon />
-                <span>Giữ trọn vị ngọt tự nhiên, thơm ngon và an toàn cho sức khỏe</span>
+                <span>Giß╗» trß╗ìn vß╗ï ngß╗ìt tß╗▒ nhi├¬n, th╞ím ngon v├á an to├án cho sß╗⌐c khß╗Åe</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── BLOCK 4: FOUR COMMITMENTS BOX ── */}
+        {/* ΓöÇΓöÇ BLOCK 4: FOUR COMMITMENTS BOX ΓöÇΓöÇ */}
         <div className="story-commitments-box border border-[#c6a15b]/45 rounded-lg p-6 md:p-8 lg:p-10 bg-[#f5ead4]/15 backdrop-blur-[1px] shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
@@ -406,10 +398,10 @@ export default function StorytellingSection() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-[#12351f] tracking-wide">
-                  An toàn vệ sinh
+                  An to├án vß╗ç sinh
                 </h4>
                 <p className="text-[#2d261b]/80 text-[13px] leading-relaxed">
-                  Sản xuất trong môi trường đảm bảo vệ sinh và an toàn thực phẩm.
+                  Sß║ún xuß║Ñt trong m├┤i tr╞░ß╗¥ng ─æß║úm bß║úo vß╗ç sinh v├á an to├án thß╗▒c phß║⌐m.
                 </p>
               </div>
             </div>
@@ -421,10 +413,10 @@ export default function StorytellingSection() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-[#12351f] tracking-wide">
-                  Nguyên liệu tươi ngon
+                  Nguy├¬n liß╗çu t╞░╞íi ngon
                 </h4>
                 <p className="text-[#2d261b]/80 text-[13px] leading-relaxed">
-                  Cam kết sử dụng nguyên liệu tươi mới mỗi ngày, không chất bảo quản độc hại.
+                  Cam kß║┐t sß╗¡ dß╗Ñng nguy├¬n liß╗çu t╞░╞íi mß╗¢i mß╗ùi ng├áy, kh├┤ng chß║Ñt bß║úo quß║ún ─æß╗Öc hß║íi.
                 </p>
               </div>
             </div>
@@ -436,10 +428,10 @@ export default function StorytellingSection() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-[#12351f] tracking-wide">
-                  Giữ trọn hương vị
+                  Giß╗» trß╗ìn h╞░╞íng vß╗ï
                 </h4>
                 <p className="text-[#2d261b]/80 text-[13px] leading-relaxed">
-                  Gìn giữ công thức truyền thống để mang đến hương vị thơm ngon, đậm đà đặc trưng.
+                  G├¼n giß╗» c├┤ng thß╗⌐c truyß╗ün thß╗æng ─æß╗â mang ─æß║┐n h╞░╞íng vß╗ï th╞ím ngon, ─æß║¡m ─æ├á ─æß║╖c tr╞░ng.
                 </p>
               </div>
             </div>
@@ -451,10 +443,10 @@ export default function StorytellingSection() {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-[#12351f] tracking-wide">
-                  Uy tín & Chất lượng
+                  Uy t├¡n & Chß║Ñt l╞░ß╗úng
                 </h4>
                 <p className="text-[#2d261b]/80 text-[13px] leading-relaxed">
-                  Hơn 20 năm kinh nghiệm là nền tảng của niềm tin từ khách hàng.
+                  H╞ín 20 n─âm kinh nghiß╗çm l├á nß╗ün tß║úng cß╗ºa niß╗üm tin tß╗½ kh├ích h├áng.
                 </p>
               </div>
             </div>
