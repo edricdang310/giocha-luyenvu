@@ -117,12 +117,15 @@ export default function HeroSection() {
           }}
         />
 
+        {/* Extra dark base overlay — mobile only */}
+        <div className="absolute inset-0 bg-black/40 pointer-events-none lg:hidden z-10" />
+
         {/* Top-to-bottom gradient for mobile */}
         <div
           className="absolute inset-0 pointer-events-none lg:hidden z-10"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.75) 100%)",
           }}
         />
 
