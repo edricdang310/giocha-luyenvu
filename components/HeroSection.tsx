@@ -106,14 +106,14 @@ export default function HeroSection() {
         </div>
 
         {/* Global Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/45 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/15 z-10 pointer-events-none" />
 
         {/* Left gradient blend from dark bg for desktop */}
         <div
           className="absolute inset-0 pointer-events-none hidden lg:block z-10"
           style={{
             background:
-              "linear-gradient(to right, #000000 25%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.3) 75%, transparent 100%)",
+              "linear-gradient(to right, #000000 18%, rgba(0,0,0,0.5) 38%, rgba(0,0,0,0.08) 65%, transparent 100%)",
           }}
         />
 
@@ -122,7 +122,7 @@ export default function HeroSection() {
           className="absolute inset-0 pointer-events-none lg:hidden z-10"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%)",
           }}
         />
 
