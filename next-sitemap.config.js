@@ -2,6 +2,7 @@
 module.exports = {
   siteUrl: process.env.SITE_URL || "https://giochaluyenvu.shop",
   generateRobotsTxt: true,
+  generateIndexSitemap: false,
   robotsTxtOptions: {
     policies: [
       {
