@@ -12,7 +12,7 @@ export function proxy(request: NextRequest) {
     'giochaluyenvu.shop',
     'www.giochaluyenvu.shop',
     'localhost',
-    '123.30.233.100',
+    '127.0.0.1',
   ];
 
   // Check if hostname is allowed or is a Vercel preview domain
