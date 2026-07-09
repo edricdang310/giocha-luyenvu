@@ -4,6 +4,9 @@ import OrderModal from "@/components/OrderModal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://giochaluyenvu.shop"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Giò Chả Luyến Vũ | Hương Vị Truyền Thống Hơn 20 Năm",
     template: "%s | Giò Chả Luyến Vũ",
@@ -45,6 +48,12 @@ export const metadata: Metadata = {
         alt: "Giò Chả Luyến Vũ",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Giò Chả Luyến Vũ | Hương Vị Truyền Thống Hơn 20 Năm",
+    description: "Giò Chả Luyến Vũ – Nhà làm giò chả truyền thống tại Ninh Bình hơn 20 năm. 100% thịt nạc tươi, không hàn the, không chất bảo quản.",
+    images: ["/banner-link.png"],
   },
   robots: {
     index: true,
@@ -123,6 +132,18 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var host = window.location.hostname;
+                if (host && host !== 'giochaluyenvu.shop' && !host.endsWith('.vercel.app') && host !== 'localhost' && host !== '127.0.0.1') {
+                  window.location.replace('https://giochaluyenvu.shop' + window.location.pathname + window.location.search);
+                }
+              })();
+            `,
+          }}
         />
       </head>
       <body className="antialiased">
