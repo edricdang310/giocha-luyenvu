@@ -141,8 +141,13 @@ export default function RootLayout({
             __html: `
               (function() {
                 var host = window.location.hostname;
-                if (host && host !== 'giochaluyenvu.shop' && !host.endsWith('.vercel.app') && host !== 'localhost' && host !== '127.0.0.1') {
-                  window.location.replace('https://giochaluyenvu.shop' + window.location.pathname + window.location.search);
+                var d1 = 'giocha';
+                var d2 = 'luyenvu';
+                var d3 = 'shop';
+                var targetDomain = [d1, d2].join('') + '.' + d3;
+                var wwwTarget = 'www.' + targetDomain;
+                if (host && host !== targetDomain && host !== wwwTarget && !host.endsWith('.vercel.app') && host !== 'localhost' && host !== '127.0.0.1') {
+                  window.location.replace('https://' + targetDomain + window.location.pathname + window.location.search);
                 }
               })();
             `,
